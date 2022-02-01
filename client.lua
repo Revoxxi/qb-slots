@@ -87,10 +87,9 @@ end)
 -------------------------------------------------------------------------------
 RegisterNUICallback('exitWith', function(data, cb)
 	cb('ok')
-	Citizen.Trace("What")
+	TriggerServerEvent("qb-slots:PayOutRewards", GetPlayerServerId(PlayerId()), data.coinAmount)
 	open = false
 	SetNuiFocus(false, false)
-	TriggerServerEvent("qb-slots:PayOutRewards", data.coinAmount)
 end)
 
 -------------------------------------------------------------------------------
@@ -111,7 +110,7 @@ Citizen.CreateThread(function ()
 				wTime = 0
 				langaAparat = true
 				if not open then
-					DrawText3Ds(Config.Slots[i].x, Config.Slots[i].y, Config.Slots[i].z + 0.15, 'Press ~g~E~w~ to test your luck.')
+					DrawText3Ds(Config.Slots[i].x, Config.Slots[i].y, Config.Slots[i].z - 0.3, 'Press ~g~E~w~ to test your luck.')
 				end
 			elseif GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.Slots[x].x, Config.Slots[x].y, Config.Slots[x].z, true) > 4 then
 				wTime = 500

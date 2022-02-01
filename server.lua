@@ -26,7 +26,7 @@ AddEventHandler("qb-slots:BetsAndMoney", function(bets)
 end)
 
 RegisterServerEvent("qb-slots:PayOutRewards")
-AddEventHandler("qb-slots:PayOutRewards", function(amount)
+AddEventHandler("qb-slots:PayOutRewards", function(source, amount)
     local src   = source
     local PlayerData = QBCore.Players[src].PlayerData
 	local Player = QBCore.Functions.GetPlayer(source)
