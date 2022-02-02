@@ -34,9 +34,9 @@ AddEventHandler("qb-slots:PayOutRewards", function(source, amount)
         amount = tonumber(amount)
         if amount > 0 then
             Player.Functions.AddMoney('cash', amount)
-			QBCore.Functions.Notify("You won $"..amount.." not bad at all!", "error")
+			TriggerClientEvent('QBCore:Notify', src, 'You won $'..amount.. ' not bad at all!', 'success')
         else
-			QBCore.Functions.Notify("Unlucky, maybe next time.", "error")
+			TriggerClientEvent('QBCore:Notify', src, 'Unlucky, maybe next time!', 'error')
         end
     end
 end)
